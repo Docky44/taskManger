@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/tasks/**/*.ts",
+      "src": "tasks/**/*.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/tasks/(.*)",
-      "dest": "api/tasks/$1.ts"
+      "src": "/tasks/(.*)",
+      "dest": "tasks/$1.ts"
     }
   ]
 }
