@@ -17,5 +17,9 @@ async function bootstrap() {
   app.enableCors();
   const port = process.env.PORT || 3000;
   await app.listen(port);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
-bootstrap();
+
+bootstrap().catch((err) => {
+  console.error('Error during bootstrap:', err);
+});
