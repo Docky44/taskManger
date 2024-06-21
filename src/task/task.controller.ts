@@ -7,14 +7,12 @@ import {
   Param,
   Patch,
   Post,
-  UseGuards,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { Task } from './task.model';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Logger } from '@nestjs/common';
 import { Types } from 'mongoose';
-import { JwtAuthGuard } from '../auth/jwt-auth.gard';
 import { request } from 'express';
 
 @Controller()
@@ -24,7 +22,6 @@ export class TaskController {
 
   constructor(private readonly taskService: TaskService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get('/task')
   @ApiOperation({ summary: 'Get a new task' })
   async findAll(): Promise<Task[]> {
